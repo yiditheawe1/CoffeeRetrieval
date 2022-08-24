@@ -1,0 +1,25 @@
+<div class="container">
+    <nav class="navbar navbar-default d-flex flex-row">
+    <div class="container-fluid" >
+        <div class="navbar-header" >
+            <a href="#" class="navbar-brand" >Coffee Retrieval Home</a>
+        </div>
+        <div class="collapse navbar-collapse" id="keyword">
+            <ul class="nav navbar-nav">
+                <li><a routerLink="/ProductList" >Product List</a></li>
+            </ul>
+            <button class="btn btn-success navbar-right" (click)="cs.GetCoffee()">Retrieve 50 Coffees</button>
+        </div>
+    </div> 
+    </nav>
+
+    <div class="row">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<style>
+    .self{
+        display: flex;
+        margin-left: 0;
+    }
+</style>

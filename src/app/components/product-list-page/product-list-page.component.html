@@ -1,0 +1,31 @@
+<h3> Coffee Pagination</h3>
+<div class="row">
+    <div class="col-xs-12">
+        <!-- <a href="#" class="list-group-item clearfix" id="area">
+        </a> -->
+        <table class="list-group-item clearfix">
+            <thead>
+                <th>Index</th>
+                <th>Coffee</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of cs.coffee50 | paginate:{
+                    itemsPerPage: 10,
+                    currentPage:this.currentPage,
+                    totalItems: 50 
+                    } ; let k=index" >
+                    <td>{{k+1+(currentPage-1)*10}}</td>
+                    <td>{{c}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <pagination-controls 
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="ontableDataChange($event)"
+            >
+            </pagination-controls>
+        </div>
+    </div>
+</div>
