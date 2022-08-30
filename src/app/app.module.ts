@@ -10,7 +10,9 @@ import { NgxPaginationModule} from 'ngx-pagination'
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GetCoffeeReducer } from './Store/getcoffee.reducer';
-import { StoreModule } from '@ngrx/store'
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment'
 
 const appRoutes: Routes=[
   {
@@ -32,7 +34,8 @@ const appRoutes: Routes=[
     NgxPaginationModule,
     LayoutModule,
     FlexLayoutModule,
-    StoreModule.forRoot({coffees: GetCoffeeReducer})
+    StoreModule.forRoot({coffees: GetCoffeeReducer}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

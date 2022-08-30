@@ -5,13 +5,13 @@
        
             <tbody>
                 <ng-container *ngIf='coffees$ | async as coffees'>
-                    <tr *ngFor="let coffee of coffees.slice(currentPage*10 - 10, currentPage*10) | paginate:{
+                    <tr *ngFor="let coffee of coffees| paginate:{
                         itemsPerPage: 10,
                         currentPage:this.currentPage,
                         totalItems: 50 
                         } ; let k=index">
                         {{coffee.id}},&nbsp;&nbsp;{{coffee.uid}},&nbsp;&nbsp;{{coffee.blend_name}},&nbsp;&nbsp;{{coffee.origin}},&nbsp;&nbsp;{{coffee.variety}},&nbsp;&nbsp;
-                        {{coffee.notes}},&nbsp;&nbsp;{{coffee.intensifier}},&nbsp;&nbsp;
+                        {{coffee.notes}},&nbsp;&nbsp;{{coffee.intensifier}}
                     </tr>
                 </ng-container>
             </tbody>
