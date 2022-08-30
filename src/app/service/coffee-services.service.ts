@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import { Store } from '@ngrx/store';
+import { CoffeeState } from '../Store/getcoffee.reducer';
+import { addCoffee } from '../Store/getcoffee.action';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +16,7 @@ export class CoffeeServicesService {
   ]
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private store: Store<CoffeeState>) { }
 
     // FUNCS
     GetCoffee(){
@@ -22,7 +25,8 @@ export class CoffeeServicesService {
       }
       for(let i=0;i<50;i++){
         this.http.get('https://random-data-api.com/api/coffee/random_coffee').subscribe(val=>{
-          this.coffee50.push(JSON.stringify(val))
+          this.store.dispatch(addCoffee({coffee: val}));
+          //this.coffee50.push(JSON.stringify(val))
         })
       }
       this.toggle=false

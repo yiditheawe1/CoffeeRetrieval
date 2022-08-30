@@ -8,7 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPaginationModule} from 'ngx-pagination'
 import { LayoutModule } from '@angular/cdk/layout';
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { GetCoffeeReducer } from './Store/getcoffee.reducer';
+import { StoreModule } from '@ngrx/store'
 
 const appRoutes: Routes=[
   {
@@ -29,7 +31,8 @@ const appRoutes: Routes=[
     RouterModule.forRoot(appRoutes),
     NgxPaginationModule,
     LayoutModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    StoreModule.forRoot({coffees: GetCoffeeReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
